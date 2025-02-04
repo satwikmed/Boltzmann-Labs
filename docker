@@ -1,0 +1,13 @@
+FROM python:3.8
+
+ENV AWS_SHARED_CREDENTIALS_FILE /Users/satwikmedipalli/Main/.aws/credentials
+
+WORKDIR /Users/satwikmedipalli/Main
+
+COPY . /Users/satwikmedipalli/Main/ 
+
+COPY . /Users/satwikmedipalli/Main/.aws/
+
+RUN pip install --no-cache-dir boto3 pandas numpy matplotlib seaborn scipy
+
+CMD ["python", "main.py"]
